@@ -1,0 +1,65 @@
+import { StyleSheet, Text, View, Image, ScrollView } from 'react-native'
+import { Link } from 'expo-router'
+import React from 'react'
+import Logo from '../../assets/images/logo.png'
+// import Advert from '../../assets/images/Advert.png'
+import WalletCard from '../components/WalletCard';
+import AdBanner from '../components/AdBanner';
+// import ServiceButtons from '../components/ServiceButtons';
+import ComingSoon from '../components/ComingSoon';
+
+const Home = () => {
+  return (
+    <ScrollView style={styles.container}>
+      <View style={styles.logoContainer}>
+        <Image source={Logo} style={styles.logo} />
+      </View>
+    
+      <WalletCard />
+      <AdBanner />
+      {/* <ServiceButtons /> */}
+      <ComingSoon />
+    </ScrollView>
+  )
+}
+
+export default Home
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    paddingTop: 20,
+    // alignItems: 'center',
+    backgroundColor: '#ededed',
+  },
+  logoContainer: {
+    width: '100%',
+    alignItems: 'flex-start',
+    paddingHorizontal: 10,
+  },
+  logo: {
+    width: 100,
+    height: 40,
+    resizeMode: 'contain',
+  },
+  title: {
+    fontSize: 16,
+    color: '#000',
+    marginTop: 10,
+  },
+  accountContainer: {
+    width: '100%',
+    alignItems: 'center',
+    paddingHorizontal: 10,
+    backgroundColor: '#1B4F40',
+  },
+  img: {
+    width: 350,
+    height: 350,
+    resizeMode: 'contain',
+  },
+  link: {
+    marginVertical: 10,
+    borderBottomWidth: 1,
+  },
+})
