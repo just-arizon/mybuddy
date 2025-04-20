@@ -8,20 +8,20 @@ export default function ComingSoon() {
       <Text style={styles.title}>Coming Soon</Text>
       <View style={styles.row}>
         <View style={styles.item}>
-          <View style={{ backgroundColor: '#ebffee', borderRadius: 50, padding: 20 }}>
+          <View style={{ backgroundColor: '#ebffee', borderRadius: 50, padding: 15 }}>
               <Entypo name="video" size={24} color="#1e4d2b" />
           </View>
           <Text>Movies</Text>
         </View>
         <View style={styles.item}>
-          <View style={{ backgroundColor: '#ebffee', borderRadius: 50, padding: 20 }}>
+          <View style={{ backgroundColor: '#ebffee', borderRadius: 50, padding: 15 }}>
               <Ionicons name="musical-notes" size={24} color="#1e4d2b" />
           </View>
 
           <Text>Music</Text>
         </View>
         <View style={styles.item}>
-          <View style={{ backgroundColor: '#ebffee', borderRadius: 50, padding: 20 }}>
+          <View style={{ backgroundColor: '#ebffee', borderRadius: 50, padding: 15 }}>
               <MaterialIcons name="travel-explore" size={24} color="#1e4d2b" />
           </View>
           <Text>Travel</Text>
@@ -36,9 +36,9 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     borderRadius: 20,
     marginVertical: 5,
-    marginBottom: 50,
+    marginBottom: 17,
     marginHorizontal: 10,
-    paddingVertical: 20,
+    paddingVertical: 10,
   },
   title: {
     fontWeight: 'bold',

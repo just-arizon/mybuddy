@@ -46,7 +46,8 @@ const styles = StyleSheet.create({
   card: {
     backgroundColor: '#1e4d3b', // Custom green shade
     borderRadius: 20,
-    padding: 20,
+    paddingHorizontal: 15,
+    paddingVertical: 10,
     marginHorizontal: 10,
     marginTop: 10,
     position: 'relative',

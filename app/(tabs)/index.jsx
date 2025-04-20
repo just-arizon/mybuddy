@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Image, ScrollView } from 'react-native'
+import { StyleSheet, Text, View, Image, ScrollView, RefreshControl } from 'react-native'
 import { Link } from 'expo-router'
 import React from 'react'
 import Logo from '../../assets/images/logo.png'
@@ -7,18 +7,29 @@ import WalletCard from '../components/WalletCard';
 import AdBanner from '../components/AdBanner';
 // import ServiceButtons from '../components/ServiceButtons';
 import ComingSoon from '../components/ComingSoon';
+import Login from '../(auth)/login';
 
 const Home = () => {
+  const [refreshing, setRefreshing] = React.useState(false);
+
+  const onRefresh = () => {
+    setRefreshing(true);
+    setTimeout(() => setRefreshing(false), 2000);
+  };
   return (
-    <ScrollView style={styles.container}>
-      <View style={styles.logoContainer}>
+    <ScrollView style={styles.container}
+    refreshControl={
+      <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+    }
+    >
+      {/* <View style={styles.logoContainer}>
         <Image source={Logo} style={styles.logo} />
-      </View>
-    
-      <WalletCard />
-      <AdBanner />
+      </View> */}
+      <Login />
+      {/* <WalletCard /> */}
+      {/* <AdBanner /> */}
       {/* <ServiceButtons /> */}
-      <ComingSoon />
+      {/* <ComingSoon /> */}
     </ScrollView>
   )
 }
@@ -28,8 +39,7 @@ export default Home
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: 20,
-    // alignItems: 'center',
+    paddingTop: 5,
     backgroundColor: '#ededed',
   },
   logoContainer: {

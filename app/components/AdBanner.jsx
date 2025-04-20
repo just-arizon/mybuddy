@@ -16,21 +16,21 @@ export default function AdBanner() {
 
 const styles = StyleSheet.create({
   container: {
-    marginVertical: 15,
+    marginVertical: 10,
     marginHorizontal: 10,
   },
   banner: {
     width: '100%',
-    height: 150,
+    height: 80,
     borderRadius: 10,
     resizeMode: 'cover',
-    marginBottom: 10,
+    marginBottom: 5,
   },
   bannerTwo: {
     width: '100%',
-    height: 150,
+    height: 80,
     borderRadius: 10,
-    resizeMode: 'contain',
-    marginBottom: 10,
+    resizeMode: 'cover',
+    marginBottom: 5,
   },
 });
