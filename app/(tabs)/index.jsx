@@ -5,9 +5,7 @@ import Logo from '../../assets/images/logo.png'
 // import Advert from '../../assets/images/Advert.png'
 import WalletCard from '../components/WalletCard';
 import AdBanner from '../components/AdBanner';
-// import ServiceButtons from '../components/ServiceButtons';
 import ComingSoon from '../components/ComingSoon';
-import Login from '../(auth)/login';
 
 const Home = () => {
   const [refreshing, setRefreshing] = React.useState(false);
@@ -22,14 +20,12 @@ const Home = () => {
       <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
     }
     >
-      {/* <View style={styles.logoContainer}>
+      <View style={styles.logoContainer}>
         <Image source={Logo} style={styles.logo} />
-      </View> */}
-      <Login />
-      {/* <WalletCard /> */}
-      {/* <AdBanner /> */}
-      {/* <ServiceButtons /> */}
-      {/* <ComingSoon /> */}
+      </View>
+      <WalletCard />
+      <AdBanner />
+      <ComingSoon />
     </ScrollView>
   )
 }

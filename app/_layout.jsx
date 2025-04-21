@@ -1,5 +1,5 @@
 import { useColorScheme } from 'react-native';
-import { Stack } from 'expo-router';
+import { Stack, Slot } from 'expo-router';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import React from 'react';
 
@@ -9,10 +9,10 @@ const RootLayout = () => {
 
   return (
     <SafeAreaProvider>
-      <Stack>
-        {/* This is pointing to the (tabs) folder */}
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-      </Stack>
+      {/* <Stack>
+        <Stack.Screen  name="(tabs)" options={{ headerShown: false }} />
+      </Stack> */}
+      <Slot />
     </SafeAreaProvider>
   );
 };
