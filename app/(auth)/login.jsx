@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   View,
   Text,
@@ -13,31 +13,38 @@ import SocialButton from "../components/SocialButton";
 const Login = () => {
   const router = useRouter();
 
+  const [isEmailFocused, setEmailFocused] = useState(false);
+  const [isPasswordFocused, setPasswordFocused] = useState(false);
+
   return (
     <View style={styles.container}>
-      <Image
-        source={require("../../assets/images/logo.png")}
-        style={styles.image}
-      />
-      <Image
-        source={require("../../assets/images/onboarding.png")}
-        style={styles.onboardingImage}
-      />
-
-      <Text style={styles.heading}>Login here</Text>
+      <Text style={styles.heading}>Login Here</Text>
       <Text style={styles.subheading}>Welcome back you’ve been missed!</Text>
 
-      <TextInput
-        style={styles.input}
-        placeholder="Email"
-        placeholderTextColor="#555"
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Password"
-        placeholderTextColor="#555"
-        secureTextEntry
-      />
+      <View style={styles.inputContainer}>
+        <TextInput
+          style={[
+            styles.input,
+            { borderColor: isEmailFocused ? "#1B4F40" : "#ddd" },
+          ]}
+          placeholder="Email"
+          placeholderTextColor="#555"
+          onFocus={() => setEmailFocused(true)}
+          onBlur={() => setEmailFocused(false)}
+        />
+
+        <TextInput
+          style={[
+            styles.input,
+            { borderColor: isPasswordFocused ? "#1B4F40" : "#ddd" },
+          ]}
+          placeholder="Password"
+          placeholderTextColor="#555"
+          secureTextEntry
+          onFocus={() => setPasswordFocused(true)}
+          onBlur={() => setPasswordFocused(false)}
+        />
+      </View>
 
       <Text style={styles.forgotText}>Forgot your password?</Text>
 
@@ -61,16 +68,11 @@ const Login = () => {
 export default Login;
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: "#fff" },
-  onboardingImage: {
-    position: "absolute",
-    top: -50,
-    right: -20,
-    width: 250,
-    height: 250,
-    resizeMode: "contain",
-    opacity: 0.8,
-    // zIndex: 1,
+  container: {
+    flex: 1,
+    position: "relative",
+    width: "100%",
+    paddingHorizontal: 10,
   },
   image: {
     height: 120,
@@ -80,32 +82,39 @@ const styles = StyleSheet.create({
   },
   heading: {
     fontSize: 35,
+    fontFamily: "Nunito",
     fontWeight: "700",
     marginTop: 20,
     textAlign: "center",
-    color: "#0E7C60",
+    color: "#1B4F40",
   },
   subheading: {
-    fontSize: 14,
+    fontSize: 15,
+    fontWeight: "bold",
     color: "#333",
     marginBottom: 20,
     marginTop: 20,
     textAlign: "center",
-    paddingHorizontal: 47,
+    paddingHorizontal: 80,
+  },
+  inputContainer: {
+    width: "100%",
+    paddingHorizontal: 10,
+    marginVertical: 30,
+    gap: 10,
   },
   input: {
     backgroundColor: "#fff",
-    padding: 12,
+    padding: 15,
     marginBottom: 12,
     borderRadius: 10,
     borderWidth: 1,
-    borderColor: "#ddd",
   },
   forgotText: {
-     alignSelf: "flex-end", 
-     marginBottom: 20, 
-     color: "#0E7C60" 
-    },
+    alignSelf: "flex-end",
+    marginBottom: 20,
+    color: "#0E7C60",
+  },
   primaryBtn: {
     backgroundColor: "#1B4F40",
     padding: 15,

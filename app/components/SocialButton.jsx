@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
         marginHorizontal: 8,
-        elevation: 2, // adds subtle shadow for Android
+        
       },
       
 });
