@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
   },
   banner: {
     width: '100%',
-    height: 80,
+    height: 140,
     borderRadius: 10,
     resizeMode: 'cover',
     marginBottom: 5,

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   View,
   Text,
@@ -14,13 +14,11 @@ import * as Font from "expo-font";
 
 const Register = () => {
   const router = useRouter();
-  //  const [fontsLoaded] = Font.useFonts({
-  //     Roboto: require("../../assets/fonts/Roboto_Condensed-ExtraBold.ttf"),
-  //     Montserrat: require("../../assets/fonts/Montserrat-SemiBold.ttf"),
-  //   });
-  
-  
-  //   if (!fontsLoaded) return null;
+
+    const [isEmailFocused, setEmailFocused] = useState(false);
+    const [isPasswordFocused, setPasswordFocused] = useState(false);
+    const [isConfirmedPasswordFocused, setConfirmedPasswordFocused] = useState(false);
+
 
   return (
     <View style={styles.container}>
@@ -28,23 +26,41 @@ const Register = () => {
       <Text style={styles.heading}>Create Account</Text>
       <Text style={styles.subheading}>Create an account so you can explore all the existing jobs</Text>
 
-      <TextInput
-        style={styles.input}
-        placeholder="Email"
-        placeholderTextColor="#555"
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Password"
-        placeholderTextColor="#555"
-        secureTextEntry
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Confirm Password"
-        placeholderTextColor="#555"
-        secureTextEntry
-      />
+      <View style={styles.inputContainer}>
+        <TextInput
+          style={[
+            styles.input,
+              { borderColor: isEmailFocused ? "#1B4F40" : "#ddd" },
+          ]
+          }
+          placeholder="Email"
+          placeholderTextColor="#555"
+          onFocus={() => setEmailFocused(true)}
+          onBlur={() => setEmailFocused(false)}
+        />
+        <TextInput
+          style={[
+            styles.input,
+            { borderColor: isPasswordFocused ? "#1B4F40" : "#ddd" },
+          ]}
+          placeholder="Password"
+          placeholderTextColor="#555"
+          secureTextEntry
+          onFocus={() => setPasswordFocused(true)}
+          onBlur={() => setPasswordFocused(false)}
+        />
+        <TextInput
+          style={[
+            styles.input,
+            { borderColor: isConfirmedPasswordFocused ? "#1B4F40" : "#ddd" },
+          ]}
+          placeholder="Confirm Password"
+          placeholderTextColor="#555"
+          secureTextEntry
+          onFocus={() => setConfirmedPasswordFocused(true)}
+          onBlur={() => setConfirmedPasswordFocused(false)}
+        />
+      </View>
 
 
       <TouchableOpacity
@@ -68,7 +84,10 @@ export default Register;
 
 const styles = StyleSheet.create({
   container: { 
-    flex: 1, 
+    flex: 1,
+    position: "relative",
+    width: "100%",
+    // paddingHorizontal: 10, 
   },
 
   image: {
@@ -88,12 +107,18 @@ const styles = StyleSheet.create({
   },
   subheading: {
     fontSize: 14,
+    fontWeight: "bold",
     color: "#000",
     marginBottom: 20,
     marginTop: 20,
     textAlign: "center",
     paddingHorizontal: 47,
-    // fontFamily: 'Montserrat'
+  },
+  inputContainer: {
+    width: "100%",
+    paddingHorizontal: 10,
+    marginVertical: 23,
+    gap: 10,
   },
   input: {
     backgroundColor: "#fff",

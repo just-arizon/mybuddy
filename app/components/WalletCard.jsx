@@ -17,24 +17,35 @@ const WalletCard = () => {
       <Text style={styles.greeting}>Hi Ola</Text>
 
       {/* Balance */}
-      <View style={styles.balanceRow}>
-        <Text style={styles.label}>Available Balance</Text>
-        <MaterialIcons name="visibility" size={16} color="#fff" style={{ marginLeft: 4 }} />
-      </View>
+      <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'flex-end' }}>
+        <View style={{  alignItems: 'flex-end', marginTop: 10 }}>
+          <View style={{ height: 58 }}>
+            <View style={styles.balanceRow}>
+              <Text style={styles.label}>Available Balance</Text>
+              <MaterialIcons name="visibility" size={16} color="#fff" style={{ marginLeft: 4 }} />
+            </View>
+            <Text style={styles.amount}>₦1,400.31</Text>
+          </View>
+        </View>
 
-      <Text style={styles.amount}>₦1,400.31</Text>
+        {/* Buttons */}
+        <View>
+          <View style={styles.buttonRow}>
+            <View style={{ alignItems: 'center' }}>
+              <TouchableOpacity style={styles.actionBtn}>
+                <FontAwesome name="exchange" size={16} color="#fff" />
+              </TouchableOpacity>
+              <Text style={styles.btnText}>Transactions</Text>
+            </View>
 
-      {/* Buttons */}
-      <View style={styles.buttonRow}>
-        <TouchableOpacity style={styles.actionBtn}>
-          <FontAwesome name="exchange" size={16} color="#fff" />
-          <Text style={styles.btnText}>Transactions</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity style={styles.actionBtn}>
-          <FontAwesome name="credit-card" size={16} color="#fff" />
-          <Text style={styles.btnText}>Fund Wallet</Text>
-        </TouchableOpacity>
+            <View style={{ alignItems: 'center' }}>
+              <TouchableOpacity style={styles.actionBtn}>
+                <FontAwesome name="credit-card" size={16} color="#fff" />
+              </TouchableOpacity>
+              <Text style={styles.btnText}>Fund Wallet</Text>
+            </View>
+          </View>
+        </View>
       </View>
     </View>
   );
@@ -47,7 +58,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#1e4d3b', // Custom green shade
     borderRadius: 20,
     paddingHorizontal: 15,
-    paddingVertical: 10,
+    paddingVertical: 8,
     marginHorizontal: 10,
     marginTop: 10,
     position: 'relative',
@@ -61,7 +72,7 @@ const styles = StyleSheet.create({
   balanceRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: 4,
+    marginBottom: 1,
   },
   label: {
     color: '#e0e0e0',
@@ -76,19 +87,23 @@ const styles = StyleSheet.create({
   buttonRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
+    gap: 5,
+    // backgroundColor: '#000',
+    height: 50,
   },
   actionBtn: {
-    flexDirection: 'row',
+    flexDirection: 'column',
     alignItems: 'center',
+    justifyContent: 'center',
     backgroundColor: '#2a6f55',
-    paddingVertical: 8,
-    paddingHorizontal: 12,
-    borderRadius: 10,
+    width: 30,
+    height: 30,
+    borderRadius: 50,
   },
   btnText: {
     color: '#fff',
     marginLeft: 8,
-    fontSize: 14,
+    fontSize: 12,
   },
   cartContainer: {
     position: 'absolute',
